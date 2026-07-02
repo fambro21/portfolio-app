@@ -1,0 +1,11 @@
+html,
+body {
+  margin: 0;
+  box-sizing: border-box;
+  min-height: 100%;
+  font-family: "Roboto", Arial, Helvetica, sans-serif;
+}
+
+body {
+  background: #020617;
+}
