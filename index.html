@@ -22,7 +22,42 @@
 
   <body>
     <header class="site-header">
-      <nav class="site-nav"></nav>
+      <nav class="site-nav">
+        <ul class="nav-list logo-container">
+          <li>
+            <a href="#" class="logo" aria-label="Homepage">
+              <span class="partial-logo">&lt;DEV</span>
+              <span style="position: relative; right: 6px">/</span>
+              <span style="position: relative; right: 14px">&gt;</span>
+            </a>
+          </li>
+        </ul>
+        <ul class="nav-list nav-right">
+          <li>HOME</li>
+          <li>FORGE UI</li>
+          <li>PROJECTS</li>
+          <li>SKILLS</li>
+          <li>CONTACT</li>
+        </ul>
+      </nav>
+
+      <div class="hamburger-menu">
+        <button id="menuButton" class="hamburger-menu-btn">
+          <span id="menuIcon"></span>
+        </button>
+      </div>
+      <div id="mobileMenu" class="mobile-menu">
+        <button id="closeMenuButton" class="close-menu-btn">
+          <i data-lucide="x"></i>
+        </button>
+        <ul class="mobile-nav-list">
+          <li>Home</li>
+          <li>Forge UI</li>
+          <li>Projects</li>
+          <li>Skills</li>
+          <li>Contact</li>
+        </ul>
+      </div>
     </header>
     <main>
       <section class="hero"></section>
