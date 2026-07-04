@@ -161,17 +161,33 @@ body {
   animation: fadeInUp 0.8s ease-out forwards;
 }
 
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .sub-hero-content {
   text-align: center;
   font-family: "Inter", sans-serif;
   font-size: 48px;
   font-weight: 900;
+  opacity: 0;
+  transform: translateY(40px);
+
+  animation: floatUp 0.8s ease-out forwards;
 }
 
-@keyframes fadeInUp {
+@keyframes floatUp {
   from {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(40px);
   }
 
   to {
