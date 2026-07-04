@@ -175,6 +175,7 @@ body {
 
 .sub-hero-content {
   text-align: center;
+  text-transform: uppercase;
   font-family: "Inter", sans-serif;
   font-size: 48px;
   font-weight: 900;
@@ -258,7 +259,7 @@ body {
   .hero-background-code {
     display: block;
     position: absolute;
-    top: 67%;
+    top: 47%;
     left: 60%;
     z-index: 1;
     opacity: 0.3;
