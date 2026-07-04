@@ -7,27 +7,32 @@
 
   let isOpen = false;
 
-  function renderIcon() {
+  function renderMenu() {
     mobileMenu.classList.toggle("open", isOpen);
-
     heroContent.classList.toggle("hidden", isOpen);
 
-    menuIcon.innerHTML = isOpen
-      ? '<i data-lucide="x"></i>'
-      : '<i data-lucide="menu"></i>';
-
+    menuIcon.innerHTML = '<i data-lucide="menu"></i>';
     lucide.createIcons();
   }
 
-  menuButton.addEventListener("click", () => {
+  function openMenu() {
     isOpen = true;
-    renderIcon();
-  });
+    renderMenu();
+  }
 
-  closeMenuButton.addEventListener("click", () => {
+  function closeMenu() {
     isOpen = false;
-    renderIcon();
+    renderMenu();
+  }
+
+  menuButton.addEventListener("click", openMenu);
+  closeMenuButton.addEventListener("click", closeMenu);
+
+  window.addEventListener("resize", () => {
+    if (window.innerWidth >= 768) {
+      closeMenu();
+    }
   });
 
-  renderIcon();
+  renderMenu();
 })();
