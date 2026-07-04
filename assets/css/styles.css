@@ -196,6 +196,10 @@ body {
   }
 }
 
+.hero-background-code {
+  display: none;
+}
+
 @media (min-width: 768px) {
   .hero {
     background-position: center;
@@ -234,6 +238,30 @@ body {
 
   .sub-hero-content {
     font-size: 64px;
+  }
+
+  .hero-background-code {
+    display: block;
+    position: absolute;
+    top: 67%;
+    left: 60%;
+    z-index: 1;
+    opacity: 0.3;
+    color: #9ca0b8;
+    pointer-events: none;
+
+    width: 70%;
+    max-width: 80px;
+
+    font-size: 12px;
+    line-height: 1.6;
+  }
+
+  .line-number {
+    color: #00ff95;
+    font-weight: 700;
+    display: inline-block;
+    width: 2.5rem;
   }
 }
 
