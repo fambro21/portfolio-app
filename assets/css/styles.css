@@ -200,6 +200,14 @@ body {
   display: none;
 }
 
+.sub-text {
+  font-size: 14px;
+  font-family: "JetBrains Mono", monospace;
+  color: #8b8fa7;
+  line-height: 1.625;
+  max-width: 500px;
+}
+
 @media (min-width: 768px) {
   .hero {
     background-position: center;
@@ -272,5 +280,9 @@ body {
 
   .sub-hero-content {
     font-size: 112px;
+  }
+
+  .sub-text {
+    margin-left: 14.5%;
   }
 }
