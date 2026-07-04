@@ -3,11 +3,14 @@
   const menuIcon = document.getElementById("menuIcon");
   const mobileMenu = document.getElementById("mobileMenu");
   const closeMenuButton = document.getElementById("closeMenuButton");
+  const heroContent = document.getElementById("heroContent");
 
   let isOpen = false;
 
   function renderIcon() {
     mobileMenu.classList.toggle("open", isOpen);
+
+    heroContent.classList.toggle("hidden", isOpen);
 
     menuIcon.innerHTML = isOpen
       ? '<i data-lucide="x"></i>'
