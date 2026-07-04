@@ -5,7 +5,43 @@
   const closeMenuButton = document.getElementById("closeMenuButton");
   const heroContent = document.getElementById("heroContent");
 
+  const fpsEl = document.getElementById("fps");
+  const scrollYEl = document.getElementById("scrollY");
+  const viewportEl = document.getElementById("viewport");
+
+  let lastFrameTime = performance.now();
+  let frameCount = 0;
+  let fps = 0;
+
   let isOpen = false;
+
+  function updateViewport() {
+    viewportEl.textContent = `${window.innerWidth}x${window.innerHeight}`;
+  }
+
+  function updateScroll() {
+    scrollYEl.textContent = `${Math.round(window.scrollY)}px`;
+  }
+
+  function updateFPS(currentTime) {
+    frameCount++;
+
+    if (currentTime - lastFrameTime >= 1000) {
+      fps = frameCount;
+      frameCount = 0;
+      lastFrameTime = currentTime;
+      fpsEl.textContent = fps;
+    }
+
+    requestAnimationFrame(updateFPS);
+  }
+
+  window.addEventListener("scroll", updateScroll);
+  window.addEventListener("resize", updateViewport);
+
+  updateScroll();
+  updateViewport();
+  requestAnimationFrame(updateFPS);
 
   function renderMenu() {
     mobileMenu.classList.toggle("open", isOpen);

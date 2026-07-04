@@ -113,7 +113,7 @@ body {
 .hero {
   position: relative;
   min-height: 100vh;
-  overflow: hidden;
+  overflow: visible;
 
   display: flex;
   justify-content: center;
@@ -208,6 +208,13 @@ body {
   max-width: 500px;
 }
 
+#about,
+#projects,
+#skills,
+#contact {
+  min-height: 100vh;
+}
+
 @media (min-width: 768px) {
   .hero {
     background-position: center;
@@ -270,6 +277,47 @@ body {
     font-weight: 700;
     display: inline-block;
     width: 2.5rem;
+  }
+
+  .system-status-container {
+    display: flex;
+    padding: 20px;
+
+    margin-top: -150px;
+    position: relative;
+    z-index: 10;
+  }
+
+  .system-status {
+    left: 2rem;
+    bottom: 2rem;
+    width: 200px;
+    padding: 0.875rem;
+    background: rgba(2, 6, 23, 0.85);
+    border: 1px solid rgba(148, 163, 184, 0.15);
+    color: #00ff9c;
+    font-family: "JetBrains Mono", monospace;
+    z-index: 20;
+  }
+
+  .system-status h6 {
+    margin: 0 0 1.5rem;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+  }
+
+  .system-status p {
+    margin: 0.75rem 0;
+    font-size: 9px;
+  }
+
+  .system-status span {
+    color: #64748b;
+  }
+
+  .system-status strong {
+    color: #00ff9c;
+    font-weight: 700;
   }
 }
 
