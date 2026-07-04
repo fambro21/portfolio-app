@@ -161,6 +161,36 @@ body {
   animation: fadeInUp 0.8s ease-out forwards;
 }
 
+.button-container {
+  display: flex;
+  justify-content: center;
+  gap: 0.5;
+  align-items: center;
+  font-family: "JetBrains Mono", monospace;
+  gap: 1.5rem;
+  font-size: 0.875rem;
+}
+
+.projects-btn {
+  text-transform: uppercase;
+  color: #07080e;
+  background-color: #00ff95;
+  border: transparent;
+  padding: 8px 20px;
+  line-height: 1.25rem;
+  letter-spacing: 0.05em;
+}
+
+.contact-btn {
+  text-transform: uppercase;
+  color: #00ff95;
+  background-color: #07080e;
+  border: 1px solid #00ff95;
+  padding: 8px 20px;
+  line-height: 1.25rem;
+  letter-spacing: 0.05em;
+}
+
 @keyframes fadeInUp {
   from {
     opacity: 0;
