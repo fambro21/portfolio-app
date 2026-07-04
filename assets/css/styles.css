@@ -112,12 +112,14 @@ body {
 
 .hero {
   position: relative;
-  min-height: 100vh;
+  min-height: auto;
   overflow: visible;
 
   display: flex;
   justify-content: center;
   align-items: flex-start;
+
+  padding-bottom: 3rem;
 }
 
 .hero::before {
@@ -243,6 +245,10 @@ body {
   display: none;
 }
 
+.next-section-container {
+  margin-top: 2rem;
+}
+
 .next-section {
   background-color: transparent;
   color: #00ff95;
@@ -261,16 +267,32 @@ body {
   }
 }
 
-#about,
 #projects,
 #skills,
 #contact {
   min-height: 100vh;
 }
 
+.projects-container {
+  min-height: 100vh;
+}
+
+.project-title {
+  font-size: 12px;
+  font-family: "JetBrains Mono", monospace;
+  color: #00ff95;
+  padding: 2rem 8%;
+  margin: 0;
+  padding: 2rem 8%;
+}
+
 @media (min-width: 768px) {
   .hero {
     background-position: center;
+  }
+
+  .hero {
+    min-height: 100vh;
   }
 
   .hamburger-menu {
