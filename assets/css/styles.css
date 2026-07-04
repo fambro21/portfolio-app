@@ -21,7 +21,7 @@ body {
   top: 0;
   left: 0;
   width: 100%;
-  z-index: 2;
+  z-index: 100;
   display: flex;
   padding: 2rem 8%;
 }
@@ -73,7 +73,7 @@ body {
   background: rgba(5, 7, 13, 0.96);
   border-bottom: 1px solid rgba(255, 255, 255, 0.15);
   padding: 30px 46px 50px;
-  z-index: 50;
+  z-index: 1000;
 }
 
 .mobile-menu.open {
@@ -155,9 +155,17 @@ body {
 .job-title {
   color: #00ff95;
   text-transform: uppercase;
+  text-align: center;
   opacity: 0;
   transform: translateY(20px);
   animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.sub-hero-content {
+  text-align: center;
+  font-family: "Inter", sans-serif;
+  font-size: 48px;
+  font-weight: 900;
 }
 
 @keyframes fadeInUp {
@@ -207,10 +215,18 @@ body {
   .hero-content {
     padding: 100px 8% 0;
   }
+
+  .sub-hero-content {
+    font-size: 64px;
+  }
 }
 
 @media (min-width: 1440px) {
   .hero-content {
     padding: 60px 8% 0;
+  }
+
+  .sub-hero-content {
+    font-size: 112px;
   }
 }
