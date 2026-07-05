@@ -10,7 +10,9 @@
   const viewportEl = document.getElementById("viewport");
 
   const filterButtons = document.querySelectorAll(".filter-btn");
-  const projectCards = document.querySelectorAll(".project-card");
+  const projectCards = document.querySelectorAll(
+    ".projects-grid .project-card",
+  );
 
   const header = document.querySelector("#header");
   const skillBars = document.querySelectorAll(".fill");
