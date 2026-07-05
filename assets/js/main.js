@@ -9,6 +9,9 @@
   const scrollYEl = document.getElementById("scrollY");
   const viewportEl = document.getElementById("viewport");
 
+  const filterButtons = document.querySelectorAll(".filter-btn");
+  const projectCards = document.querySelectorAll(".project-card");
+
   let lastFrameTime = performance.now();
   let frameCount = 0;
   let fps = 0;
@@ -35,6 +38,25 @@
 
     requestAnimationFrame(updateFPS);
   }
+
+  filterButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      const filter = button.dataset.filter;
+      filterButtons.forEach((btn) => {
+        btn.classList.remove("active");
+      });
+
+      button.classList.add("active");
+
+      projectCards.forEach((card) => {
+        const category = card.dataset.category;
+
+        const shouldShow = filter === "all" || category === filter;
+
+        card.classList.toggle("is-hidden", !shouldShow);
+      });
+    });
+  });
 
   window.addEventListener("scroll", updateScroll);
   window.addEventListener("resize", updateViewport);
