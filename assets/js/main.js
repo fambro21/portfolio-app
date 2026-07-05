@@ -13,6 +13,7 @@
   const projectCards = document.querySelectorAll(".project-card");
 
   const header = document.querySelector("#header");
+  const skillBars = document.querySelectorAll(".fill");
 
   let lastFrameTime = performance.now();
   let frameCount = 0;
@@ -100,6 +101,15 @@
     } else {
       header.classList.remove("scrolled");
     }
+  });
+
+  window.addEventListener("DOMContentLoaded", () => {
+    requestAnimationFrame(() => {
+      skillBars.forEach((bar) => {
+        const width = bar.dataset.width;
+        bar.style.width = `${width}%`;
+      });
+    });
   });
 
   renderMenu();

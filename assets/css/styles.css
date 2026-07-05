@@ -607,6 +607,123 @@ body {
   }
 }
 
+.skill-card-header {
+  padding: 10px;
+  border-bottom: 1px solid #333;
+}
+
+.windows-controls-container {
+  display: flex;
+  gap: 1rem;
+}
+
+.windows-controls {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.red-control,
+.yellow-control,
+.green-control {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+}
+
+.red-control {
+  background-color: #ff5f57;
+}
+
+.yellow-control {
+  background-color: #febc2e;
+}
+
+.green-control {
+  background-color: #28c840;
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 48px;
+  padding: 20px;
+}
+
+.group-title {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+
+  text-transform: uppercase;
+  letter-spacing: 6px;
+  font-weight: 700;
+}
+
+.group-title::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background-color: #292c3b;
+}
+
+.skill {
+  margin-bottom: 28px;
+}
+
+.skill-info {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 12px;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.skill-info span:last-child {
+  color: #9ca3b8;
+  font-size: 16px;
+}
+
+.bar {
+  height: 6px;
+  background: #1f2230;
+  overflow: hidden;
+}
+
+.fill {
+  height: 100%;
+  width: 0;
+  background: #22c983;
+  transition: width 1.5s ease-out;
+}
+
+.blue {
+  color: #60a5fa;
+}
+
+.green {
+  color: #00ff95;
+}
+
+.yellow {
+  color: #facc15;
+}
+
+.purple {
+  color: #c084fc;
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 48px;
+  padding: 48px;
+}
+
 @media (min-width: 768px) {
   .hero {
     background-position: center;
@@ -716,6 +833,22 @@ body {
   .project-description {
     font-size: 14px;
   }
+
+  .skill-card-header {
+    min-height: 66px;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    padding: 10px;
+  }
+
+  .skills-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .skill-info {
+    font-size: 16px;
+  }
 }
 
 @media (min-width: 1024px) {
@@ -778,5 +911,9 @@ body {
 
   .projects-grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .skills-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
