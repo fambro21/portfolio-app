@@ -12,6 +12,8 @@
   const filterButtons = document.querySelectorAll(".filter-btn");
   const projectCards = document.querySelectorAll(".project-card");
 
+  const header = document.querySelector("#header");
+
   let lastFrameTime = performance.now();
   let frameCount = 0;
   let fps = 0;
@@ -89,6 +91,14 @@
   window.addEventListener("resize", () => {
     if (window.innerWidth >= 768) {
       closeMenu();
+    }
+  });
+
+  window.addEventListener("scroll", () => {
+    if (window.scrollY > 0) {
+      header.classList.add("scrolled");
+    } else {
+      header.classList.remove("scrolled");
     }
   });
 
