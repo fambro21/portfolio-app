@@ -662,6 +662,7 @@ body {
   text-transform: uppercase;
   letter-spacing: 6px;
   font-weight: 700;
+  padding-bottom: 8px;
 }
 
 .group-title::after {
