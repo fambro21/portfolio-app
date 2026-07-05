@@ -16,6 +16,7 @@
 
   const header = document.querySelector("#header");
   const skillBars = document.querySelectorAll(".fill");
+  const cards = document.querySelectorAll(".upcomming-project-card");
 
   let lastFrameTime = performance.now();
   let frameCount = 0;
@@ -111,6 +112,16 @@
         const width = bar.dataset.width;
         bar.style.width = `${width}%`;
       });
+    });
+  });
+
+  cards.forEach((card) => {
+    card.addEventListener("mouseenter", () => {
+      card.style.boxShadow = "0 0 30px rgba(0, 255, 153, 0.12)";
+    });
+
+    card.addEventListener("mouseleave", () => {
+      card.style.boxShadow = "none";
     });
   });
 

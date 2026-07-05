@@ -297,6 +297,7 @@ body {
 
 #projects,
 #skills,
+#upcomming,
 #contact {
   min-height: 100vh;
 }
@@ -725,6 +726,107 @@ body {
   padding: 48px;
 }
 
+.upcomming-icon {
+  position: relative;
+  top: 4px;
+  width: 15px;
+  height: 15px;
+}
+
+.upcomming-container {
+  margin-top: 15px;
+}
+
+.upcomming-projects {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+  padding: 1rem 8%;
+}
+
+.upcomming-project-card {
+  position: relative;
+  min-height: 345px;
+  background: #10131d;
+  border: 1px solid #262b3a;
+  overflow: hidden;
+  padding: 0;
+}
+
+.upcomming-project-card:hover {
+  border-color: #00ff99;
+  transform: translateY(-4px);
+  transition: 0.3s ease;
+}
+
+.upcomming-card-image {
+  height: 170px;
+  background-size: cover;
+  background-position: center;
+  opacity: 0.28;
+  position: relative;
+}
+
+.upcomming-card-image::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(5, 6, 13, 0.1), #10131d 90%);
+}
+
+.image-1 {
+  background-image: url(../images/forge-ui.png);
+}
+
+.image-2 {
+  background-image: url(../images/family-tree-connect.png);
+}
+
+.image-3 {
+  background-image: url(../images/rvpro-dispatch.png);
+}
+
+.badge {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  color: #00ff99;
+  background: rgba(0, 255, 153, 0.08);
+  border: 1px solid rgba(0, 255, 153, 0.35);
+  padding: 8px 14px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 3px;
+}
+
+.card-content {
+  padding: 26px 24px 30px;
+}
+
+.category {
+  color: #00ff99;
+  font-size: 12px;
+  font-family: "JetBrains Mono", monospace;
+  letter-spacing: 6px;
+  font-weight: 700;
+  margin-bottom: 14px;
+}
+
+.upcomming-title {
+  margin: 0 0 16px;
+  font-size: 22px;
+  font-weight: 800;
+  color: #ffffff;
+}
+
+.description {
+  color: #9296a8;
+  font-size: 11px;
+  line-height: 1.6;
+  font-family: "JetBrains Mono", monospace;
+  font-weight: 700;
+}
+
 @media (min-width: 768px) {
   .hero {
     background-position: center;
@@ -850,6 +952,20 @@ body {
   .skill-info {
     font-size: 16px;
   }
+
+  .upcomming-icon {
+    position: relative;
+    top: 1px;
+    width: 15px;
+    height: 15px;
+  }
+}
+
+@media (max-width: 1000px) {
+  .upcomming-projects {
+    grid-template-columns: 1fr;
+    padding: 30px 20px;
+  }
 }
 
 @media (min-width: 1024px) {
@@ -887,6 +1003,12 @@ body {
     display: inline-block;
     width: 2.5rem;
   }
+
+  .upcomming-icon {
+    position: relative;
+    width: 15px;
+    height: 15px;
+  }
 }
 
 @media (min-width: 1440px) {
@@ -916,5 +1038,19 @@ body {
 
   .skills-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .upcomming-projects {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+    padding: 1rem 8%;
+  }
+
+  .upcomming-icon {
+    position: relative;
+    top: 4px;
+    width: 20px;
+    height: 20px;
   }
 }
