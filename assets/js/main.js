@@ -21,6 +21,10 @@
   const availabilityDot = document.getElementById("availabilityDot");
   const availabilityText = document.getElementById("availabilityText");
 
+  const copyrightText = document.querySelector(".footer-copyright span");
+
+  copyrightText.textContent = `© ${new Date().getFullYear()} — JONATHAN FAMBRO`;
+
   let lastFrameTime = performance.now();
   let frameCount = 0;
   let fps = 0;

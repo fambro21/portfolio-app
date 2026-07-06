@@ -966,6 +966,138 @@ body {
   background-color: #ef4444;
 }
 
+.site-footer {
+  width: 100%;
+  min-height: 220px;
+
+  display: flex;
+  align-items: center;
+
+  background-color: #07080e;
+
+  border-top: 2px solid #333;
+  border-radius: 0 0 18px 18px;
+}
+
+.footer-content {
+  width: 100%;
+
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+
+  padding: 0 48px;
+}
+
+.footer-copyright,
+.footer-built-with {
+  color: #4d4e5e;
+
+  font-family: "JetBrains Mono", monospace;
+  font-size: 1rem;
+  font-weight: 700;
+
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.footer-copyright {
+  justify-self: start;
+}
+
+.footer-built-with {
+  justify-self: end;
+  font-size: 20px;
+}
+
+.footer-socials {
+  justify-self: center;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 42px;
+}
+
+.social-link {
+  width: 31px;
+  height: 31px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: #545564;
+
+  transition:
+    color 0.25s ease,
+    transform 0.25s ease;
+}
+
+.social-link svg {
+  width: 100%;
+  height: 100%;
+}
+
+/* LinkedIn uses fill */
+.social-link[aria-label="LinkedIn"] svg {
+  fill: currentColor;
+}
+
+/* GitHub and email use stroke */
+.social-link[aria-label="GitHub"] svg,
+.social-link[aria-label="Email"] svg {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.9;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.social-link:hover {
+  color: #20b779;
+  transform: translateY(-3px);
+}
+
+@media (max-width: 640px) {
+  .site-footer {
+    min-height: 380px;
+  }
+
+  .footer-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    gap: 38px;
+
+    padding: 50px 24px;
+    text-align: center;
+  }
+
+  .footer-copyright,
+  .footer-built-with {
+    white-space: normal;
+  }
+
+  .footer-copyright {
+    font-size: 22px;
+    line-height: 1.45;
+  }
+
+  .footer-socials {
+    gap: 42px;
+  }
+
+  .footer-built-with {
+    font-size: 18px;
+    line-height: 1.45;
+  }
+}
+
 @media (min-width: 768px) {
   .hero {
     background-position: center;
@@ -1128,12 +1260,74 @@ body {
   .availability-text {
     font-size: 12px;
   }
+
+  .site-footer {
+    min-height: 380px;
+  }
+
+  .footer-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 38px;
+    padding: 50px 24px;
+    text-align: center;
+  }
+
+  .footer-copyright {
+    font-size: 22px;
+  }
+
+  .footer-built-with {
+    justify-self: auto;
+    font-size: 18px;
+  }
+
+  .footer-socials {
+    gap: 42px;
+  }
+
+  .social-link {
+    width: 31px;
+    height: 31px;
+  }
 }
 
 @media (max-width: 1000px) {
   .upcomming-projects {
     grid-template-columns: 1fr;
     padding: 30px 20px;
+  }
+
+  .footer-content {
+    padding: 0 25px;
+  }
+
+  .footer-copyright,
+  .footer-built-with {
+    font-size: 14px;
+  }
+
+  .footer-socials {
+    gap: 25px;
+  }
+}
+
+@media (max-width: 1100px) {
+  .footer-content {
+    padding: 0 32px;
+  }
+
+  .footer-copyright {
+    font-size: 20px;
+  }
+
+  .footer-built-with {
+    font-size: 17px;
+  }
+
+  .footer-socials {
+    gap: 34px;
   }
 }
 
@@ -1189,6 +1383,22 @@ body {
 
   .mail-btn {
     width: 25%;
+  }
+
+  .footer-content {
+    padding: 0 32px;
+  }
+
+  .footer-copyright {
+    font-size: 20px;
+  }
+
+  .footer-built-with {
+    font-size: 17px;
+  }
+
+  .footer-socials {
+    gap: 34px;
   }
 }
 
