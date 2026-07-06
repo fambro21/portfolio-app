@@ -25,6 +25,20 @@
 
   copyrightText.textContent = `© ${new Date().getFullYear()} — JONATHAN FAMBRO`;
 
+  const projectsButton = document.querySelector(".projects-btn");
+  const projectsSection = document.querySelector("#projects");
+
+  menuButton.addEventListener("click", openMenu);
+  closeMenuButton.addEventListener("click", closeMenu);
+
+  const mobileNavLinks = document.querySelectorAll(".mobile-nav-list a");
+
+  mobileNavLinks.forEach((link) => {
+    link.addEventListener("click", () => {
+      closeMenu();
+    });
+  });
+
   let lastFrameTime = performance.now();
   let frameCount = 0;
   let fps = 0;
@@ -146,6 +160,13 @@
 
   // Current status
   setAvailability(true);
+
+  projectsButton.addEventListener("click", () => {
+    projectsSection.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
+  });
 
   renderMenu();
 })();

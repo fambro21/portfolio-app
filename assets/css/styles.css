@@ -129,6 +129,17 @@ body {
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
+.mobile-nav-list a {
+  color: #ffffff;
+  text-decoration: none;
+  transition: color 0.25s ease;
+}
+
+.mobile-nav-list a:hover {
+  color: #00ff95;
+  text-shadow: 0 0 8px rgba(0, 255, 149, 0.35);
+}
+
 .hero {
   position: relative;
   min-height: auto;
@@ -202,6 +213,20 @@ body {
   padding: 8px 20px;
   line-height: 1.25rem;
   letter-spacing: 0.05em;
+
+  cursor: pointer;
+
+  transition:
+    box-shadow 0.3s ease,
+    transform 0.3s ease;
+}
+
+.projects-btn:hover {
+  box-shadow:
+    0 0 10px rgba(0, 255, 149, 0.45),
+    0 0 24px rgba(0, 255, 149, 0.25);
+
+  transform: translateY(-2px);
 }
 
 .contact-btn {
@@ -1122,6 +1147,17 @@ body {
     color: white;
     list-style: none;
     text-decoration: none;
+  }
+
+  .nav-right a {
+    color: #ffffff;
+    text-decoration: none;
+    transition: color 0.25s ease;
+  }
+
+  .nav-right a:hover {
+    color: #00ff95;
+    text-shadow: 0 0 8px rgba(0, 255, 149, 0.35);
   }
 
   .hero-content {
