@@ -28,6 +28,9 @@
   const projectsButton = document.querySelector(".projects-btn");
   const projectsSection = document.querySelector("#projects");
 
+  const contactsButton = document.querySelector(".contact-btn");
+  const contactSection = document.querySelector("#contact");
+
   menuButton.addEventListener("click", openMenu);
   closeMenuButton.addEventListener("click", closeMenu);
 
@@ -163,6 +166,13 @@
 
   projectsButton.addEventListener("click", () => {
     projectsSection.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
+  });
+
+  contactsButton.addEventListener("click", () => {
+    contactSection.scrollIntoView({
       behavior: "smooth",
       block: "start",
     });

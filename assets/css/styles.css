@@ -237,6 +237,20 @@ body {
   padding: 8px 20px;
   line-height: 1.25rem;
   letter-spacing: 0.05em;
+
+  cursor: pointer;
+
+  transition:
+    box-shadow 0.3s ease,
+    transform 0.3s ease;
+}
+
+.contact-btn:hover {
+  box-shadow:
+    0 0 8px rgba(0, 255, 149, 0.25),
+    0 0 16px rgba(0, 255, 149, 0.12);
+
+  transform: translateY(-2px);
 }
 
 @keyframes fadeInUp {
