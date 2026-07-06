@@ -18,6 +18,9 @@
   const skillBars = document.querySelectorAll(".fill");
   const cards = document.querySelectorAll(".upcomming-project-card");
 
+  const availabilityDot = document.getElementById("availabilityDot");
+  const availabilityText = document.getElementById("availabilityText");
+
   let lastFrameTime = performance.now();
   let frameCount = 0;
   let fps = 0;
@@ -124,6 +127,21 @@
       card.style.boxShadow = "none";
     });
   });
+
+  function setAvailability(isAvailable) {
+    if (isAvailable) {
+      availabilityText.textContent = "CURRENTLY AVAILABLE FOR OPPORTUNITIES";
+
+      availabilityDot.classList.remove("unavailable");
+    } else {
+      availabilityText.textContent = "CURRENTLY UNAVAILABLE";
+
+      availabilityDot.classList.add("unavailable");
+    }
+  }
+
+  // Current status
+  setAvailability(true);
 
   renderMenu();
 })();
