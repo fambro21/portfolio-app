@@ -1,204 +1,214 @@
 (function () {
-  const menuButton = document.getElementById("menuButton");
-  const menuIcon = document.getElementById("menuIcon");
-  const mobileMenu = document.getElementById("mobileMenu");
-  const closeMenuButton = document.getElementById("closeMenuButton");
-  const heroContent = document.getElementById("heroContent");
+  const SELECTORS = {
+    menuButton: "#menuButton",
+    menuIcon: "#menuIcon",
+    mobileMenu: "#mobileMenu",
+    closeMenuButton: "#closeMenuButton",
+    heroContent: "#heroContent",
+    fps: "#fps",
+    scrollY: "#scrollY",
+    viewport: "#viewport",
+    filterButtons: ".filter-btn",
+    projectCards: ".projects-grid .project-card",
+    header: "#header",
+    skillBars: ".fill",
+    cards: ".upcomming-project-card",
+    availabilityDot: "#availabilityDot",
+    availabilityText: "#availabilityText",
+    copyrightText: ".footer-copyright span",
+    projectsButton: ".projects-btn",
+    projectsSection: "#projects",
+    contactsButton: ".contact-btn",
+    contactSection: "#contact",
+    linkedinButton: ".linkedIn-btn",
+    indeedButton: ".file-text-btn",
+    emailButton: ".mail-btn",
+    mobileNavLinks: ".mobile-nav-list a",
+  };
 
-  const fpsEl = document.getElementById("fps");
-  const scrollYEl = document.getElementById("scrollY");
-  const viewportEl = document.getElementById("viewport");
+  const LINKS = {
+    linkedin: "https://www.linkedin.com/in/jonathan-fambro-34a8b1241/",
+    indeed:
+      "https://resumes.indeed.com/?__cf_chl_f_tk=ur_uA_GCe6FVwLaaNRdyv9EsdyI3.DhQvqJ663OT9h8-1783348974-1.0.1.1-99QUpDl6Q2_LdGBNRqkVpE1WsZNw4PrWGN2rVfRvkXM",
+    email: "mailto:fambrojonathan1985@gmail.com",
+  };
 
-  const filterButtons = document.querySelectorAll(".filter-btn");
-  const projectCards = document.querySelectorAll(
-    ".projects-grid .project-card",
-  );
+  const dom = {
+    menuButton: document.querySelector(SELECTORS.menuButton),
+    menuIcon: document.querySelector(SELECTORS.menuIcon),
+    mobileMenu: document.querySelector(SELECTORS.mobileMenu),
+    closeMenuButton: document.querySelector(SELECTORS.closeMenuButton),
+    heroContent: document.querySelector(SELECTORS.heroContent),
+    fps: document.querySelector(SELECTORS.fps),
+    scrollY: document.querySelector(SELECTORS.scrollY),
+    viewport: document.querySelector(SELECTORS.viewport),
+    filterButtons: document.querySelectorAll(SELECTORS.filterButtons),
+    projectCards: document.querySelectorAll(SELECTORS.projectCards),
+    header: document.querySelector(SELECTORS.header),
+    skillBars: document.querySelectorAll(SELECTORS.skillBars),
+    cards: document.querySelectorAll(SELECTORS.cards),
+    availabilityDot: document.querySelector(SELECTORS.availabilityDot),
+    availabilityText: document.querySelector(SELECTORS.availabilityText),
+    copyrightText: document.querySelector(SELECTORS.copyrightText),
+    projectsButton: document.querySelector(SELECTORS.projectsButton),
+    projectsSection: document.querySelector(SELECTORS.projectsSection),
+    contactsButton: document.querySelector(SELECTORS.contactsButton),
+    contactSection: document.querySelector(SELECTORS.contactSection),
+    linkedinButton: document.querySelector(SELECTORS.linkedinButton),
+    indeedButton: document.querySelector(SELECTORS.indeedButton),
+    emailButton: document.querySelector(SELECTORS.emailButton),
+    mobileNavLinks: document.querySelectorAll(SELECTORS.mobileNavLinks),
+  };
 
-  const header = document.querySelector("#header");
-  const skillBars = document.querySelectorAll(".fill");
-  const cards = document.querySelectorAll(".upcomming-project-card");
+  const state = {
+    isMenuOpen: false,
+    lastFrameTime: performance.now(),
+    frameCount: 0,
+  };
 
-  const availabilityDot = document.getElementById("availabilityDot");
-  const availabilityText = document.getElementById("availabilityText");
+  function renderMenu() {
+    dom.mobileMenu.classList.toggle("open", state.isMenuOpen);
+    dom.heroContent.classList.toggle("hidden", state.isMenuOpen);
 
-  const copyrightText = document.querySelector(".footer-copyright span");
+    dom.menuButton.setAttribute("aria-expanded", String(state.isMenuOpen));
+    dom.mobileMenu.setAttribute("aria-hidden", String(!state.isMenuOpen));
 
-  copyrightText.textContent = `© ${new Date().getFullYear()} — JONATHAN FAMBRO`;
+    dom.menuIcon.innerHTML = '<i data-lucide="menu" aria-hidden="true"></i>';
+    lucide.createIcons();
+  }
 
-  const projectsButton = document.querySelector(".projects-btn");
-  const projectsSection = document.querySelector("#projects");
+  function openMenu() {
+    state.isMenuOpen = true;
+    renderMenu();
+  }
 
-  const contactsButton = document.querySelector(".contact-btn");
-  const contactSection = document.querySelector("#contact");
-
-  const linkedinButton = document.querySelector(".linkedIn-btn");
-  const indeedButton = document.querySelector(".file-text-btn");
-  const emailBtn = document.querySelector(".mail-btn");
-
-  menuButton.addEventListener("click", openMenu);
-  closeMenuButton.addEventListener("click", closeMenu);
-
-  const mobileNavLinks = document.querySelectorAll(".mobile-nav-list a");
-
-  mobileNavLinks.forEach((link) => {
-    link.addEventListener("click", () => {
-      closeMenu();
-    });
-  });
-
-  let lastFrameTime = performance.now();
-  let frameCount = 0;
-  let fps = 0;
-
-  let isOpen = false;
+  function closeMenu() {
+    state.isMenuOpen = false;
+    renderMenu();
+  }
 
   function updateViewport() {
-    viewportEl.textContent = `${window.innerWidth}x${window.innerHeight}`;
+    dom.viewport.textContent = `${window.innerWidth}x${window.innerHeight}`;
   }
 
   function updateScroll() {
-    scrollYEl.textContent = `${Math.round(window.scrollY)}px`;
+    const scrollY = Math.round(window.scrollY);
+
+    dom.scrollY.textContent = `${scrollY}px`;
+    dom.header.classList.toggle("scrolled", scrollY > 0);
   }
 
   function updateFPS(currentTime) {
-    frameCount++;
+    state.frameCount++;
 
-    if (currentTime - lastFrameTime >= 1000) {
-      fps = frameCount;
-      frameCount = 0;
-      lastFrameTime = currentTime;
-      fpsEl.textContent = fps;
+    if (currentTime - state.lastFrameTime >= 1000) {
+      dom.fps.textContent = state.frameCount;
+      state.frameCount = 0;
+      state.lastFrameTime = currentTime;
     }
 
     requestAnimationFrame(updateFPS);
   }
 
-  filterButtons.forEach((button) => {
-    button.addEventListener("click", () => {
-      const filter = button.dataset.filter;
-      filterButtons.forEach((btn) => {
-        btn.classList.remove("active");
-      });
+  function filterProjects(activeButton) {
+    const filter = activeButton.dataset.filter;
 
-      button.classList.add("active");
+    dom.filterButtons.forEach((button) => {
+      const isActive = button === activeButton;
 
-      projectCards.forEach((card) => {
-        const category = card.dataset.category;
-
-        const shouldShow = filter === "all" || category === filter;
-
-        card.classList.toggle("is-hidden", !shouldShow);
-      });
+      button.classList.toggle("active", isActive);
+      button.setAttribute("aria-pressed", String(isActive));
     });
-  });
 
-  window.addEventListener("scroll", updateScroll);
-  window.addEventListener("resize", updateViewport);
+    dom.projectCards.forEach((card) => {
+      const shouldShow = filter === "all" || card.dataset.category === filter;
 
-  updateScroll();
-  updateViewport();
-  requestAnimationFrame(updateFPS);
-
-  function renderMenu() {
-    mobileMenu.classList.toggle("open", isOpen);
-    heroContent.classList.toggle("hidden", isOpen);
-
-    menuIcon.innerHTML = '<i data-lucide="menu"></i>';
-    lucide.createIcons();
+      card.classList.toggle("is-hidden", !shouldShow);
+    });
   }
 
-  function openMenu() {
-    isOpen = true;
-    renderMenu();
-  }
-
-  function closeMenu() {
-    isOpen = false;
-    renderMenu();
-  }
-
-  menuButton.addEventListener("click", openMenu);
-  closeMenuButton.addEventListener("click", closeMenu);
-
-  window.addEventListener("resize", () => {
-    if (window.innerWidth >= 768) {
-      closeMenu();
-    }
-  });
-
-  window.addEventListener("scroll", () => {
-    if (window.scrollY > 0) {
-      header.classList.add("scrolled");
-    } else {
-      header.classList.remove("scrolled");
-    }
-  });
-
-  window.addEventListener("DOMContentLoaded", () => {
+  function animateSkillBars() {
     requestAnimationFrame(() => {
-      skillBars.forEach((bar) => {
-        const width = bar.dataset.width;
-        bar.style.width = `${width}%`;
+      dom.skillBars.forEach((bar) => {
+        bar.style.width = `${bar.dataset.width}%`;
       });
     });
-  });
-
-  cards.forEach((card) => {
-    card.addEventListener("mouseenter", () => {
-      card.style.boxShadow = "0 0 30px rgba(0, 255, 153, 0.12)";
-    });
-
-    card.addEventListener("mouseleave", () => {
-      card.style.boxShadow = "none";
-    });
-  });
+  }
 
   function setAvailability(isAvailable) {
-    if (isAvailable) {
-      availabilityText.textContent = "CURRENTLY AVAILABLE FOR OPPORTUNITIES";
+    dom.availabilityText.textContent = isAvailable
+      ? "CURRENTLY AVAILABLE FOR OPPORTUNITIES"
+      : "CURRENTLY UNAVAILABLE";
 
-      availabilityDot.classList.remove("unavailable");
-    } else {
-      availabilityText.textContent = "CURRENTLY UNAVAILABLE";
-
-      availabilityDot.classList.add("unavailable");
-    }
+    dom.availabilityDot.classList.toggle("unavailable", !isAvailable);
   }
 
-  // Current status
-  setAvailability(true);
-
-  projectsButton.addEventListener("click", () => {
-    projectsSection.scrollIntoView({
+  function scrollToSection(section) {
+    section.scrollIntoView({
       behavior: "smooth",
       block: "start",
     });
-  });
+  }
 
-  contactsButton.addEventListener("click", () => {
-    contactSection.scrollIntoView({
-      behavior: "smooth",
-      block: "start",
+  function openExternalLink(url) {
+    window.open(url, "_blank", "noopener,noreferrer");
+  }
+
+  function bindEvents() {
+    dom.menuButton.addEventListener("click", openMenu);
+    dom.closeMenuButton.addEventListener("click", closeMenu);
+
+    dom.mobileNavLinks.forEach((link) => {
+      link.addEventListener("click", closeMenu);
     });
-  });
 
-  linkedinButton.addEventListener("click", () => {
-    window.open(
-      "https://www.linkedin.com/in/jonathan-fambro-34a8b1241/",
-      "_blank",
-      "noopener,noreferrer",
-    );
-  });
+    dom.filterButtons.forEach((button) => {
+      button.addEventListener("click", () => filterProjects(button));
+    });
 
-  indeedButton.addEventListener("click", () => {
-    window.open(
-      "https://resumes.indeed.com/?__cf_chl_f_tk=ur_uA_GCe6FVwLaaNRdyv9EsdyI3.DhQvqJ663OT9h8-1783348974-1.0.1.1-99QUpDl6Q2_LdGBNRqkVpE1WsZNw4PrWGN2rVfRvkXM",
-    );
-  });
+    window.addEventListener("scroll", updateScroll, { passive: true });
 
-  emailBtn.addEventListener("click", () => {
-    window.location.href = "mailto:fambrojonathan1985@gmail.com";
-  });
+    window.addEventListener("resize", () => {
+      updateViewport();
 
-  renderMenu();
+      if (window.innerWidth >= 768) {
+        closeMenu();
+      }
+    });
+
+    dom.projectsButton.addEventListener("click", () => {
+      scrollToSection(dom.projectsSection);
+    });
+
+    dom.contactsButton.addEventListener("click", () => {
+      scrollToSection(dom.contactSection);
+    });
+
+    dom.linkedinButton.addEventListener("click", () => {
+      openExternalLink(LINKS.linkedin);
+    });
+
+    dom.indeedButton.addEventListener("click", () => {
+      openExternalLink(LINKS.indeed);
+    });
+
+    dom.emailButton.addEventListener("click", () => {
+      window.location.href = LINKS.email;
+    });
+  }
+
+  function init() {
+    dom.copyrightText.textContent = `© ${new Date().getFullYear()} — JONATHAN FAMBRO`;
+
+    bindEvents();
+    updateScroll();
+    updateViewport();
+    animateSkillBars();
+    setAvailability(true);
+    renderMenu();
+
+    requestAnimationFrame(updateFPS);
+  }
+
+  init();
 })();
