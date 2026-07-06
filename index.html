@@ -22,7 +22,7 @@
 
   <body>
     <header id="header" class="site-header">
-      <nav class="site-nav">
+      <nav class="site-nav" aria-label="Primary navigation">
         <ul class="nav-list logo-container">
           <li>
             <a href="#" class="logo" aria-label="Homepage">
@@ -40,13 +40,25 @@
       </nav>
 
       <div class="hamburger-menu">
-        <button id="menuButton" class="hamburger-menu-btn">
-          <span id="menuIcon"></span>
+        <button
+          id="menuButton"
+          class="hamburger-menu-btn"
+          type="button"
+          aria-label="Open menu"
+          aria-controls="mobileMenu"
+          aria-expanded="false"
+        >
+          <span id="menuIcon" aria-hidden="true"></span>
         </button>
       </div>
       <div id="mobileMenu" class="mobile-menu">
-        <button id="closeMenuButton" class="close-menu-btn">
-          <i data-lucide="x"></i>
+        <button
+          id="closeMenuButton"
+          class="close-menu-btn"
+          type="button"
+          aria-label="Close menu"
+        >
+          <i data-lucide="x" aria-hidden="true"></i>
         </button>
         <ul class="mobile-nav-list">
           <li><a href="#home">Home</a></li>
@@ -83,15 +95,26 @@
               and driven by clean architecture and exceptional UX.
             </p>
             <div class="button-container">
-              <button class="projects-btn">
+              <button
+                class="projects-btn"
+                type="button"
+                aria-label="View selected projects"
+              >
                 <p>View Projects</p>
               </button>
-              <button class="contact-btn">
+              <button
+                class="contact-btn"
+                type="button"
+                aria-label="Go to contact section"
+              >
                 <p>Contact</p>
               </button>
             </div>
             <div class="next-section-container">
-              <button class="next-section">
+              <button
+                class="next-section"
+                aria-label="Scroll to projects section"
+              >
                 <i data-lucide="chevron-down"></i>
               </button>
             </div>
@@ -118,18 +141,63 @@
           and Node.js.
         </p>
 
-        <div class="tabs">
-          <button class="filter-btn active" data-filter="all">All</button>
-          <button class="filter-btn" data-filter="react">React</button>
-          <button class="filter-btn" data-filter="typescript">
+        <div class="tabs" role="tablist" aria-label="Project filters">
+          <button
+            class="filter-btn active"
+            type="button"
+            data-filter="all"
+            aria-pressed="true"
+          >
+            All
+          </button>
+          <button
+            class="filter-btn"
+            type="button"
+            data-filter="react"
+            aria-pressed="false"
+          >
+            React
+          </button>
+          <button
+            class="filter-btn"
+            type="button"
+            data-filter="typescript"
+            aria-pressed="false"
+          >
             TypeScript
           </button>
-          <button class="filter-btn" data-filter="javascript">
+          <button
+            class="filter-btn"
+            type="button"
+            data-filter="javascript"
+            aria-pressed="false"
+          >
             JavaScript
           </button>
-          <button class="filter-btn" data-filter="angular">Angular</button>
-          <button class="filter-btn" data-filter="angularjs">AngularJS</button>
-          <button class="filter-btn" data-filter="nodejs">Node.js</button>
+          <button
+            class="filter-btn"
+            type="button"
+            data-filter="angular"
+            aria-pressed="false"
+          >
+            Angular
+          </button>
+          <button
+            class="filter-btn"
+            type="button"
+            data-filter="angularjs"
+            aria-pressed="false"
+          >
+            AngularJS
+          </button>
+          <button
+            class="filter-btn"
+            type="button"
+            data-filter="nodejs"
+            aria-pressed="false"
+          >
+            Node.js
+          </button>
 
           <div class="projects-grid">
             <article class="project-card" data-category="react">
@@ -163,7 +231,13 @@
                   >
                 </div>
 
-                <a href="#" class="project-link"> VIEW ON GITHUB ↗ </a>
+                <a
+                  href="#"
+                  class="project-link"
+                  aria-label="View React Task Board on GitHub"
+                >
+                  VIEW ON GITHUB ↗
+                </a>
               </div>
             </article>
 
@@ -215,7 +289,13 @@
                   >
                 </div>
 
-                <a href="#" class="project-link"> VIEW ON GITHUB ↗ </a>
+                <a
+                  href="#"
+                  class="project-link"
+                  aria-label="View Typescript Task Board on GitHub"
+                >
+                  VIEW ON GITHUB ↗
+                </a>
               </div>
             </article>
 
@@ -276,7 +356,13 @@
                   >
                 </div>
 
-                <a href="#" class="project-link"> VIEW ON GITHUB ↗ </a>
+                <a
+                  href="#"
+                  class="project-link"
+                  aria-label="View JavaScript Board on GitHub"
+                >
+                  VIEW ON GITHUB ↗
+                </a>
               </div>
             </article>
 
@@ -335,7 +421,13 @@
                   >
                 </div>
 
-                <a href="#" class="project-link"> VIEW ON GITHUB ↗ </a>
+                <a
+                  href="#"
+                  class="project-link"
+                  aria-label="View Angular Task Board on GitHub"
+                >
+                  VIEW ON GITHUB ↗
+                </a>
               </div>
             </article>
 
@@ -388,7 +480,13 @@
                   >
                 </div>
 
-                <a href="#" class="project-link"> VIEW ON GITHUB ↗ </a>
+                <a
+                  href="#"
+                  class="project-link"
+                  aria-label="View AngularJS Task Board on GitHub"
+                >
+                  VIEW ON GITHUB ↗
+                </a>
               </div>
             </article>
 
@@ -448,7 +546,13 @@
                   >
                 </div>
 
-                <a href="#" class="project-link"> VIEW ON GITHUB ↗ </a>
+                <a
+                  href="#"
+                  class="project-link"
+                  aria-label="View Node Task Board on GitHub"
+                >
+                  VIEW ON GITHUB ↗
+                </a>
               </div>
             </article>
           </div>
@@ -633,7 +737,7 @@
 
       <section id="upcomming" class="upcomming-container">
         <h2 class="project-title">
-          <i class="upcomming-icon" data-lucide="clock4"></i>
+          <i class="upcomming-icon" data-lucide="clock4" aria-hidden="true"></i>
           04 // In Development
         </h2>
 
@@ -709,15 +813,23 @@
           impactful product collaborations.
         </p>
         <div class="contact-button-container">
-          <button class="linkedIn-btn">
+          <button
+            class="linkedIn-btn"
+            type="button"
+            aria-label="Open LinkedIn profile"
+          >
             <p>LINKEDIN</p>
           </button>
-          <button class="file-text-btn">
-            <i data-lucide="file-text"></i>
+          <button
+            class="file-text-btn"
+            type="button"
+            aria-label="Open Indeed profile"
+          >
+            <i data-lucide="file-text" aria-hidden="true"></i>
             <p>INDEED</p>
           </button>
-          <button class="mail-btn">
-            <i data-lucide="mail"></i>
+          <button class="mail-btn" type="button" aria-label="Send email">
+            <i data-lucide="mail" aria-hidden="true"></i>
             <p>EMAIL</p>
           </button>
         </div>
