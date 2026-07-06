@@ -31,6 +31,10 @@
   const contactsButton = document.querySelector(".contact-btn");
   const contactSection = document.querySelector("#contact");
 
+  const linkedinButton = document.querySelector(".linkedIn-btn");
+  const indeedButton = document.querySelector(".file-text-btn");
+  const emailBtn = document.querySelector(".mail-btn");
+
   menuButton.addEventListener("click", openMenu);
   closeMenuButton.addEventListener("click", closeMenu);
 
@@ -176,6 +180,24 @@
       behavior: "smooth",
       block: "start",
     });
+  });
+
+  linkedinButton.addEventListener("click", () => {
+    window.open(
+      "https://www.linkedin.com/in/jonathan-fambro-34a8b1241/",
+      "_blank",
+      "noopener,noreferrer",
+    );
+  });
+
+  indeedButton.addEventListener("click", () => {
+    window.open(
+      "https://resumes.indeed.com/?__cf_chl_f_tk=ur_uA_GCe6FVwLaaNRdyv9EsdyI3.DhQvqJ663OT9h8-1783348974-1.0.1.1-99QUpDl6Q2_LdGBNRqkVpE1WsZNw4PrWGN2rVfRvkXM",
+    );
+  });
+
+  emailBtn.addEventListener("click", () => {
+    window.location.href = "mailto:fambrojonathan1985@gmail.com";
   });
 
   renderMenu();

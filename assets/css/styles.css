@@ -1100,6 +1100,46 @@ body {
   transform: translateY(-3px);
 }
 
+.linkedIn-btn,
+.file-text-btn,
+.mail-btn {
+  cursor: pointer;
+
+  transition:
+    box-shadow 0.3s ease,
+    transform 0.3s ease,
+    border-color 0.3s ease;
+}
+
+/* LinkedIn — slightly stronger because it is the primary button */
+.linkedIn-btn:hover {
+  box-shadow:
+    0 0 10px rgba(0, 255, 149, 0.35),
+    0 0 20px rgba(0, 255, 149, 0.18);
+
+  transform: translateY(-2px);
+}
+
+/* Indeed — subtle green glow */
+.file-text-btn:hover {
+  box-shadow:
+    0 0 8px rgba(0, 255, 149, 0.25),
+    0 0 16px rgba(0, 255, 149, 0.12);
+
+  transform: translateY(-2px);
+}
+
+/* Email — subtle neutral shadow, green border on hover */
+.mail-btn:hover {
+  border-color: #00f5a0;
+
+  box-shadow:
+    0 0 8px rgba(0, 255, 149, 0.18),
+    0 0 16px rgba(0, 255, 149, 0.08);
+
+  transform: translateY(-2px);
+}
+
 @media (max-width: 640px) {
   .site-footer {
     min-height: 380px;
